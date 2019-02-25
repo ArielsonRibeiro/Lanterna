@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Lanterna</string>
+    <string name="lant_ativo">A lanterna está ativa</string>
+    <string name="lant_inativo">A lanterna está desativada</string>
+    <string name="ativar_lant">Ativar a lanterna</string>
+    <string name="desativar_lant">Desativar a lenterna</string>
+
+</resources>

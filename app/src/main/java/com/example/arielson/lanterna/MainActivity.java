@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAM);
-        }else
+        } else
             getCamera();
         setContentView(R.layout.activity_main);
 
@@ -123,25 +123,29 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAM);
-        }else
+         else
             getCamera();
+
+
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        /**
-         * Encerra a comunicação com a camera
-         */
-        if (cam != null) {
-            cam.release();
-            cam = null;
-            isLedOn = false;
-            changeIconAndContentDescription();
-        }
-    }
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        /**
+//         * Encerra a comunicação com a camera
+//         */
+//        if (cam != null) {
+//            cam.release();
+//            cam = null;
+//            isLedOn = false;
+//            changeIconAndContentDescription();
+//        }
+//    }
+
+
 
     @Override
     public void finish() {
@@ -157,8 +161,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode){
-            case  REQUEST_CAM:
+        switch (requestCode) {
+            case REQUEST_CAM:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
                     getCamera();
                 else
